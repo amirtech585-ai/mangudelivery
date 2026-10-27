@@ -1,0 +1,8 @@
+# Netlify build settings for the admin web. Connect the whole repository.
+[build]
+  base = "admin-web"
+  command = "npm run build"
+  publish = "admin-web/dist"
+
+[build.environment]
+  NODE_VERSION = "20"

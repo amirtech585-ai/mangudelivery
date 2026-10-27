@@ -1,0 +1,32 @@
+# Render Blueprint: creates the backend API from backend/Dockerfile.
+# Values marked sync: false are entered in the Render dashboard, never stored in this file.
+services:
+  - type: web
+    name: mangudelivery-api
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: JWT_SECRET
+        sync: false
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: JWT_EXPIRY_MINUTES
+        value: "720"
+      - key: DELIVERY_FEE_UGX
+        value: "3000"
+      - key: SERVICE_FEE_UGX
+        value: "1000"
+      - key: COMMISSION_PERCENT
+        value: "5"
